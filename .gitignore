@@ -1,0 +1,43 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Streamlit - keep config, ignore secrets and cache
+.streamlit/secrets.toml
+.streamlit/*.json
+.streamlit/*.lock
+.streamlit/cache/
+.streamlit/logs/
+
+# VSCode and other editor settings
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Test and coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
