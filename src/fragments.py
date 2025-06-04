@@ -106,6 +106,7 @@ def train_model():
     if st.button(
         "Train Model",
         disabled=not (st.session_state.algo and st.session_state.feature_cols),
+        type="primary",
     ):
         algo_type = st.session_state.algo
         model = ML_ALGO_OPTIONS[algo_type]
@@ -178,7 +179,7 @@ def predict_target():
 
         predict_disabled = input_data.isnull().any().any()
 
-        if st.button("Predict", disabled=predict_disabled):
+        if st.button("Predict", disabled=predict_disabled, type="primary"):
             prediction = pipeline.predict(input_data)[0]
             st.subheader("Prediction Result")
 

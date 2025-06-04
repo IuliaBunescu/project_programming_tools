@@ -1,0 +1,14 @@
+.stTabs [data-baseweb="tab"] {
+    background: #262730;
+    border: 1px solid rgba(0, 0, 0, 0.0);
+    border-radius: 0.5rem;
+    font-size: 24px;
+    width: 100%;
+}
+
+.stTabs [data-baseweb="tab"] p {
+    font-size: 1rem;
+}
+
+
+

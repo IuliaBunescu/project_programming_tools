@@ -4,7 +4,7 @@ import streamlit as st
 
 import src.fragments as frag
 import src.sections as sec
-from src.utils import load_css
+from src.utils import add_vertical_space, load_css
 
 st.set_page_config(
     page_title="Julia's Project",
@@ -48,6 +48,7 @@ def main():
                 )
 
             st.divider()
+            add_vertical_space(12)
             sec.user_info()
 
     if not st.user.is_logged_in:

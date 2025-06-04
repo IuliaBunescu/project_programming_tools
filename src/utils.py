@@ -20,3 +20,8 @@ def split_columns_by_type():
     }
 
     return numerical_cols, categorical_cols, categorical_options
+
+
+def add_vertical_space(num_lines: int = 1) -> None:
+    for _ in range(num_lines):
+        st.write("")

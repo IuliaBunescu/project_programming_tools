@@ -14,11 +14,12 @@ def user_login():
 
 
 def user_info():
-    st.write(f"Welcome, {st.user.name}!")
-    st.write(f"Email: {st.user.email}")
-    st.image(st.user.picture)
-    if st.button("Log out", use_container_width=True, type="secondary"):
-        st.logout()
+    with st.container(key="user-info"):
+        st.write(f"Welcome, *{st.user.name}*!")
+        st.write(f"Email: {st.user.email}")
+        st.image(st.user.picture)
+        if st.button("Log out", use_container_width=True, type="secondary"):
+            st.logout()
 
 
 def upload_file():
