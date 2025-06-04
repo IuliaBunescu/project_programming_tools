@@ -22,6 +22,14 @@ if "initialized" not in st.session_state:
     st.session_state.initialized = True
 
 
+def reset_data():
+    st.session_state.algo = ""
+    st.session_state.feature_cols = []
+    st.session_state.target = []
+    st.session_state.valid_data = False
+    st.session_state.model_trained = False
+
+
 def main():
     with st.sidebar:
         st.title("Fast ML")
@@ -36,7 +44,10 @@ def main():
                     key="new_data",
                     use_container_width=True,
                     type="primary",
+                    on_click=reset_data(),
                 )
+
+            st.divider()
             sec.user_info()
 
     if not st.user.is_logged_in:
@@ -44,7 +55,7 @@ def main():
         st.stop()
 
     if st.session_state.new_data:
-        eda_tab, ml_tab = st.tabs(["EDA", "Prediction"])
+        eda_tab, ml_tab, pred_tab = st.tabs(["EDA", "Train", "Predict"])
         with eda_tab:
             st.title("Data Exploration")
             sec.data_shape()
@@ -59,8 +70,11 @@ def main():
             with st.expander("Null Data"):
                 frag.nulls_removal()
         with ml_tab:
-            st.title("Model Prediction")
-            frag.get_prediction_input()
+            st.title("Model Training")
+            frag.train_model()
+        with pred_tab:
+            st.title("Make a Prediction")
+            frag.predict_target()
 
 
 if __name__ == "__main__":
