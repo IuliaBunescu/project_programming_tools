@@ -48,7 +48,7 @@ def main():
                 )
 
             st.divider()
-            add_vertical_space(12)
+            add_vertical_space(5)
             sec.user_info()
 
     if not st.user.is_logged_in:
@@ -74,7 +74,7 @@ def main():
             st.title("Model Training")
             frag.train_model()
         with pred_tab:
-            st.title("Make a Prediction")
+            st.title("Inference")
             frag.predict_target()
 
 

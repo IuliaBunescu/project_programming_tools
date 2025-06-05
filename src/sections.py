@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 
+from src.utils import add_vertical_space
+
 
 def user_login():
     st.write("But first, let's log in ...")
@@ -11,13 +13,33 @@ def user_login():
         use_container_width=True,
         type="primary",
     )
+    st.button(
+        "Authenticate with Microsoft",
+        on_click=st.login,
+        args=["microsoft"],
+        use_container_width=True,
+        type="primary",
+    )
 
 
 def user_info():
     with st.container(key="user-info"):
+
+        default_avatar = (
+            "https://api.dicebear.com/9.x/bottts-neutral/svg?seed=Brooklynn"
+        )
+
+        profile_pic = getattr(st.user, "picture", None) or default_avatar
+
+        _, col2, _ = st.columns([1, 2, 1], vertical_alignment="center", gap="large")
+        with col2:
+            st.image(profile_pic, width=150)
+
         st.write(f"Welcome, *{st.user.name}*!")
         st.write(f"Email: {st.user.email}")
-        st.image(st.user.picture)
+
+        add_vertical_space(2)
+
         if st.button("Log out", use_container_width=True, type="secondary"):
             st.logout()
 
